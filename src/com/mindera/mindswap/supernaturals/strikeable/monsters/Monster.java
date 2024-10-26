@@ -5,11 +5,11 @@ import com.mindera.mindswap.supernaturals.strikeable.Strikeable;
 
 
 public abstract class Monster extends Supernatural implements Strikeable {
-    private MonsterType monsterType;
+    private final MonsterType monsterType;
     private int health;
     private boolean isPlayed;
 
-    public Monster(MonsterType monsterType, String name, int health, int attackDamage) {
+    protected Monster(MonsterType monsterType, String name, int health, int attackDamage) {
         super(name, attackDamage);
         this.monsterType = monsterType;
         this.health = health;
@@ -19,7 +19,6 @@ public abstract class Monster extends Supernatural implements Strikeable {
     public void play() {
         isPlayed = true;
     }
-
 
     public void displayDetails() {
         super.displayDetails();
