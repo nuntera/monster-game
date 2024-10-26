@@ -5,9 +5,9 @@ import com.mindera.mindswap.supernaturals.strikeable.monsters.Monster;
 import java.util.Random;
 
 public class Game {
-    private Player player1;
-    private Player player2;
-    private Random random;
+    private final Player player1;
+    private final Player player2;
+    private final Random random;
 
     public Game(Player player1, Player player2){
         this.player1 = player1;
@@ -95,7 +95,6 @@ public class Game {
         }
 
          */
-
 
 
         //defendingCard.getSupernatural()   //receiveDamage(damage);

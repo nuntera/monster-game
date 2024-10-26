@@ -2,7 +2,7 @@ package com.mindera.mindswap.supernaturals.strikeable.monsters;
 
 import java.util.Random;
 
-import static com.mindera.mindswap.Constants.*;
+import static com.mindera.mindswap.supernaturals.Constants.*;
 import static com.mindera.mindswap.supernaturals.strikeable.monsters.MonsterType.VAMPIRE;
 
 
