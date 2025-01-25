@@ -1,11 +1,9 @@
 package com.mindera.mindswap.supernaturals.strikeable.monsters;
 
-
-import static com.mindera.mindswap.supernaturals.Constants.*;
+import static com.mindera.mindswap.Constants.*;
 import static com.mindera.mindswap.supernaturals.strikeable.monsters.MonsterType.MUMMY;
 
-
-public class Mummy extends Monster{
+public class Mummy extends Monster {
     private int attackCount;
     private int maxConsecutiveAttacks;
     private int unrollDamage;
@@ -16,7 +14,6 @@ public class Mummy extends Monster{
         maxConsecutiveAttacks = MUMMY_MAX_CONSECUTIVE_ATTACKS;
         unrollDamage = MUMMY_UNROLL_DAMAGE;
     }
-
 
     public void displayDetails() {
         super.displayDetails();
@@ -29,7 +26,7 @@ public class Mummy extends Monster{
     public int attack() {
         if (attackCount < maxConsecutiveAttacks) {
             attackCount++;
-            return getAttackDamage();
+            return super.attack();
         } else {
             receiveDamage(unrollDamage);
             attackCount = 0; // Reset attack count

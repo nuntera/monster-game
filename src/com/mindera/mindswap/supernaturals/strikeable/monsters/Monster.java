@@ -3,17 +3,31 @@ package com.mindera.mindswap.supernaturals.strikeable.monsters;
 import com.mindera.mindswap.supernaturals.Supernatural;
 import com.mindera.mindswap.supernaturals.strikeable.Strikeable;
 
-
 public abstract class Monster extends Supernatural implements Strikeable {
     private final MonsterType monsterType;
-    private int health;
     private boolean isPlayed;
 
-    protected Monster(MonsterType monsterType, String name, int health, int attackDamage) {
-        super(name, attackDamage);
+    protected Monster(MonsterType monsterType, String name, int health, int hitPower) {
+        super(name, hitPower);
         this.monsterType = monsterType;
-        this.health = health;
+        setHealth(health);
         isPlayed = false;
+    }
+
+    @Override
+    public void receiveDamage(int damage) {
+        setHealth(getHealth() - damage);
+        if (getHealth() < 0) {
+            setHealth(0);
+        }
+    }
+
+    public MonsterType getMonsterType() {
+        return monsterType;
+    }
+
+    public boolean isPlayed() {
+        return isPlayed;
     }
 
     public void play() {
@@ -21,27 +35,14 @@ public abstract class Monster extends Supernatural implements Strikeable {
     }
 
     public void displayDetails() {
-        super.displayDetails();
-        System.out.println("Health: " + this.health);
+        System.out.println("Type: " + monsterType);
+        System.out.println("Health: " + getHealth());
+        System.out.println("Hit Power: " + getHitPower());
+        System.out.println("Is Played: " + isPlayed);
     }
 
-    public void receiveDamage(int damage) {
-        this.health -= damage;
-        if (this.health < 0) {
-            this.health = 0;
-        }
-    }
-
-
-    public MonsterType getMonsterType() {
-        return monsterType;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public boolean isPlayed() {
-        return isPlayed;
+    @Override
+    public String toString() {
+        return getName();
     }
 }

@@ -1,12 +1,10 @@
 package com.mindera.mindswap.supernaturals.strikeable.monsters;
 
 import java.util.Random;
-
-import static com.mindera.mindswap.supernaturals.Constants.*;
+import static com.mindera.mindswap.Constants.*;
 import static com.mindera.mindswap.supernaturals.strikeable.monsters.MonsterType.VAMPIRE;
 
-
-public class Vampire extends Monster{
+public class Vampire extends Monster {
     private int biteHealthIncrease;
     private double biteChance;
 
@@ -15,7 +13,6 @@ public class Vampire extends Monster{
         biteHealthIncrease = VAMPIRE_BITE_HEALTH_INCREASE;
         biteChance = VAMPIRE_BITE_CHANCE;
     }
-
 
     public void displayDetails() {
         super.displayDetails();
@@ -30,6 +27,6 @@ public class Vampire extends Monster{
             receiveDamage(-biteHealthIncrease);
             System.out.println("The vampire bites its enemy and gains " + biteHealthIncrease + " health!");
         }
-        return getAttackDamage();
+        return super.attack();
     }
 }

@@ -1,31 +1,39 @@
 package com.mindera.mindswap.supernaturals;
 
-
 public abstract class Supernatural {
     private String name;
-    private int attackDamage;
+    private int hitPower;
+    private int health;
 
-    public Supernatural(String name, int attackDamage){
+    protected Supernatural(String name, int hitPower) {
         this.name = name;
-        this.attackDamage = attackDamage;
+        this.hitPower = hitPower;
+        this.health = 100;
     }
-
 
     public int attack() {
-        return getAttackDamage();
+        System.out.println(this + " is attacking!");
+        return hitPower;
     }
-
-    public void displayDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Attack Damage: " + attackDamage);
-    }
-
 
     public String getName() {
         return name;
     }
 
-    public int getAttackDamage() {
-        return attackDamage;
+    public int getHitPower() {
+        return hitPower;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
